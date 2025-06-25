@@ -45,12 +45,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Unity": {
-              "target": "Package",
-              "version": "[5.11.10, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
