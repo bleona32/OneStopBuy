@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OneStopBuy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c17f60afdecc86b0acfdfe395bf3b69773761196")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+217877fdaed244c6356585b6f4ffe7c32a8375bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("OneStopBuy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OneStopBuy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
