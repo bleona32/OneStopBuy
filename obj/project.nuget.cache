@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "07yE+e9y0ZM=",
+  "dgSpecHash": "EMtKqMYhnkY=",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\Documents\\GitHub\\OneStopBuy\\OneStopBuy\\OneStopBuy.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\unity\\5.11.10\\unity.5.11.10.nupkg.sha512"
+  ],
   "logs": []
 }
