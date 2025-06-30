@@ -1,0 +1,249 @@
+@model OneStopBuy.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Details of @Html.DisplayFor(model => model.Brand)</h1>
+
+<!---->
+<div class="mt-5" style="width: 40%; margin-left: auto; margin-right: auto;">
+    <div class="row">
+        <div class="col-sm-6 mt-5 text-left">
+            <a asp-action="Edit" class="btn btn-outline-info btn-sm" asp-route-id="@Model.Id">Edit</a>
+        </div>
+        <div class="col-sm-6 mt-5 text-right">
+
+
+            @{Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
+                {
+                <div>
+                    <input type="submit" asp-controller="autos" asp-action="CreateDocument" value="Create Document" style="width:150px;height:27px" />
+                </div> }
+Html.EndForm(); }
+        </div>
+    </div>
+
+
+
+    <br />
+    @{var autoImg = @Html.DisplayFor(model => model.Photo); }
+    @*<p> @autoImg</p>*@
+
+    <div>  <img width="610" src="~/img/@autoImg" /></div>
+    @{ if (!Model.IsDogan)
+        {
+            string currentYear = DateTime.Now.Year.ToString();
+            var currentYearInt = Int16.Parse(currentYear);
+            int Age = currentYearInt - Model.Auto_Production_Year;
+            double Akcize = 0;
+            double TaksaDoganore = 0;
+            double TVSH = 0;
+            double Totali = 0;
+            int EngineSize = Model.EngineSize;
+            double AutoPrice = Model.Price;
+            if (Age < 10)
+            {
+                if (Age == 0 && EngineSize <= 2000)
+                {
+                    Akcize = 0;
+                }
+                else if (Age >= 0 && EngineSize > 2000)
+                {
+                    Akcize = 500;
+                }
+                else if (Age == 8 && EngineSize <= 3000)
+                {
+                    Akcize = 500;
+                }
+                else if (Age == 8 && EngineSize > 3000)
+                {
+                    Akcize = 1000;
+                }
+                else if (Age == 9 && EngineSize <= 3000)
+                {
+                    Akcize = 700;
+                }
+                else if (Age == 9 && EngineSize > 3000)
+                {
+                    Akcize = 1500;
+                }
+                else if (Age == 10 && EngineSize <= 2000)
+                {
+                    Akcize = 800;
+                }
+                else if (Age == 10 && EngineSize > 2000 && EngineSize <= 3000)
+                {
+                    Akcize = 900;
+                }
+                else if (Age == 10 && EngineSize > 3000)
+                {
+                    Akcize = 1800;
+                }
+                else
+                {
+
+                }
+
+                TaksaDoganore = AutoPrice * 0.1;
+                TVSH = (AutoPrice + TaksaDoganore + Akcize) * 0.16;
+                Totali = Akcize + TVSH + TaksaDoganore;
+
+        <p class="mt-5 mb-5" style="background-color:orange;text-align:center"><b>Totali për zhdoganimin të @Model.Brand është @Totali €.</b></p> }
+                else
+                {
+        <p style="background-color:red;color:white;"><b>Nuk ka te drejt doganimi sepse eshte me i vjeter se 10 vite.</b></p> }
+
+
+            } }
+    <div class="specs">
+        <dl class="row">
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Price) €
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Auto_Production_Year)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Auto_Production_Year)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Engine)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Engine)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Body_Type)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Body_Type)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Start_Production)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Start_Production)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.End_Production)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.End_Production)
+            </dd>
+            @*<dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Photo)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Photo)
+                </dd>*@
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Sets)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Sets)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Doors)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Doors)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Fuel_Consumption)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Fuel_Consumption) l/100 KM
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Fuel_Type)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Fuel_Type)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Acceleration)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Acceleration) s/100 KM/H
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Max_Speed)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Max_Speed) KM/H
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Power)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Power) HP
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Torque)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Torque) torque
+            </dd>
+            @* <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.IsDogan)
+                </dt>*@
+            @*<dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.IsDogan)
+                </dd>*@
+        </dl>
+    </div>
+</div>
+
+<div class="text-center mb-5 mt-5">
+    <a asp-action="Index">BACK TO LIST</a>
+</div>
+
+<style>
+    div.left-side img {
+        width: 100%;
+    }
+
+    div.left-side {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .specs {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .row {
+        text-align: center;
+    }
+
+    dd, dt {
+        border-bottom: 1px solid gray;
+    }
+
+    dd {
+        padding: 0px;
+        margin: 0px;
+        border-left: solid 1px gray;
+    }
+
+    .details {
+        border: 1px solid gray;
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px 8px gray,5px 10px 10px 8px gray,5px 15px 15px 8px lightgray;
+    }
+</style>

@@ -1,0 +1,96 @@
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<ApplicationUser>
+    _signInManager;
+
+    @model IEnumerable<OneStopBuy.Models.Product>
+
+        @{ ViewData["Title"] = "Products";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+        <link href="~/css/autoProducts.css" rel="stylesheet" />
+        <section class="w3l-about-breadcrumb position-relative text-center">
+            <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+                <div class="container py-lg-5 py-3">
+                    <h2 class="title">All Products</h2>
+                    <ul class="breadcrumbs-custom-path mt-2">
+                        <li style="color:firebrick">Home</li>
+                        <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> Products </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <form method="get" class="row" style="margin-top:18px">
+                <div class="col-sm-11">
+                    <input type="text" class="form-control" name="autoName" placeholder="Search by brand" />
+                </div>
+                <div>
+                    <input type="submit" class="btn btn-outline-info" style="width:85px" name="Find" value="Find" />
+
+                </div>
+            </form>
+            @if (_signInManager.IsSignedIn(User))
+    {
+            <a class="btn btn-light btn-sm mt-3" asp-action="DisplayFavorites">DisplayFavorites</a>
+    }
+
+            <a class="btn btn-light btn-sm mt-3" asp-action="Index" asp-route-sortByPrice="lowest">Order lowest to highest</a>
+            <a class="btn btn-light btn-sm mt-3" asp-action="Index" asp-route-sortByPrice="highest">Order highest to lowest</a>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <a class="btn btn-primary float-right btn btn-success " style="width:85px;" asp-action="Create">Add <i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+            <div class="row">
+
+                @foreach (var product in Model)
+        {
+                <div class="col-sm-4 mt-4">
+                    <div id="app" class="card mb-3">
+                        <a asp-action="Details" asp-route-id="@product.Id"><img src="~/img/@product.Photo" asp-append-version="true" class="card-img-top" /></a>
+
+                        <div class="card-body">
+                            <h4 class="text-Products" style="text-align:center">@product.Brand</h4>
+                            <p class="mb-3" style="text-align:center">@product.Price €</p>
+                            <ul class="">
+                                <div class="text-center">
+                                    @if (_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                                {
+
+                                    <a class="btn btn-outline-info btn-sm" asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+                                    <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@product.Id">Delete</a>}
+                                    @if (_signInManager.IsSignedIn(User))
+                                {
+                                    <a class="btn btn-outline-warning btn-sm" asp-action="AddToFavorite" asp-route-id="@product.Id">Favorite</a>}
+                                    <a class="btn btn-outline-secondary btn-sm" asp-action="Details" asp-route-id="@product.Id">Details</a>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>}
+            </div>
+        </div>
+
+
+
+
+        <style>
+            #app {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #smslogo {
+                position: fixed;
+                right: 133px;
+                bottom: 51px;
+                z-index: 500;
+                width: 18px;
+            }
+
+            .fa-comment-dots {
+                width: 100px;
+            }
+        </style>
+
