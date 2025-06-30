@@ -1,0 +1,43 @@
+@using OneStopBuy.Areas.Admin.ViewModels;
+@model CreateRoleViewModel
+
+@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="row">
+    <div class="col-md-10 mt-5 pt-5 mx-auto d-block">
+        <form method="post" class=" mx-auto d-block">
+
+
+            <h4>Create new Role</h4>
+
+            @* <div asp-validation-summary="All" class="text-danger"></div>*@
+            <div class="form-group mt-4">
+                @*<label asp-for="RoleName"></label>*@
+                <input asp-for="@Model.RoleName" style=" border-radius: 25px;" class="form-control text-center" placeholder="Type here..." />
+                <span asp-validation-for="RoleName" style=" border-radius: 25px;margin:2px" class="text-danger d-lg-block bg-dark text-center"></span>
+            </div>
+            <button type="submit" style="border-radius: 25px;" class="btn btn-success btn-block mx-auto d-block">Create Role</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<style>
+    h4 {
+        text-align: center;
+        color: #a8a8a8;
+        text-shadow: (1px 1px 0 rgba(white, 1);
+    }
+
+    form {
+        margin-top: 10%;
+        padding: 35px;
+        border-radius: 25px;
+    }
+</style>
