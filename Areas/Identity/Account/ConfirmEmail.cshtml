@@ -1,0 +1,34 @@
+@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Email is Confirmed";
+
+}
+<div class="Confirm">
+    <h1>@ViewData["Title"]</h1>
+    @*<a href="Identity/Account/Login">Login</a>*@
+    <a class="btn btn-primary" asp-page="./Login">Log In</a>
+
+</div>
+<style>
+    .Confirm {
+        margin-top: 150px;
+        text-align: center;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    #btn {
+        background-color: royalblue;
+        border: none;
+    }
+
+    header {
+        background-color: lightgray;
+        font-size: x-large;
+    }
+</style>
