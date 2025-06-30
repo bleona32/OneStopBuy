@@ -1,0 +1,140 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../img/bacground.jpg);
+    background-position-y: -288px;
+    background-position-x: right;
+    background-color: rgb(201, 198, 198);
+}
+
+.content {
+    opacity: 0.9;
+    padding-top: 0;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45vw;
+    height: 100vh;
+    text-align: center;
+    float: right;
+    background-color: rgb(255, 255, 255);
+    transition-duration: 0.6s;
+}
+
+form#account h4 {
+    font-size: 28px;
+}
+
+.content:hover {
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+    transition-duration: 0.6s;
+}
+
+.content h1 {
+    margin-top: 126px;
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Lucida Console", Courier, monospace;
+    font-weight: normal;
+}
+
+.content p {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 18px;
+}
+
+form {
+    position: relative;
+    margin-top: 40px;
+}
+
+input {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 70%;
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    height: 70px;
+    border: 1px SOLID rgb(179, 179, 179);
+    border-radius: 15px;
+    transition-duration: 0.6s;
+}
+
+    input:hover {
+        transition-duration: 0.6s;
+        background-color: rgb(243, 243, 243);
+    }
+
+    input[type="checkbox"] {
+        display: inline;
+        width: 13px;
+        height: 13px;
+        border-radius: none;
+        margin-left: 106px;
+        transition-duration: 0.6s;
+    }
+
+    input[type="submit"] {
+        margin-top: 25px;
+        height: 45px;
+        color: white;
+        background-color: rgb(102, 117, 223);
+    }
+
+        input[type="submit"]:hover {
+            transition-duration: 0.6s;
+            background-color: rgb(14, 14, 14);
+        }
+
+button {
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 70%;
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    height: 70px;
+    border: 1px SOLID rgb(179, 179, 179);
+    border-radius: 15px;
+    transition-duration: 0.6s;
+    margin-top: 25px;
+    height: 45px;
+    color: white;
+    background-color: rgb(181, 183, 196);
+}
+
+    button a {
+        text-decoration: none;
+        color: white;
+    }
+
+    button:hover {
+        transition-duration: 0.6s;
+        background-color: rgb(102, 117, 223);
+    }
+
+@media (max-width:1000px) {
+    .content {
+        opacity: 1;
+        width: 100%;
+        position: relative;
+    }
+
+    input[type="checkbox"] {
+        margin-left: 154px;
+    }
+}

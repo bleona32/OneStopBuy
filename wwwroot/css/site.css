@@ -1,22 +1,141 @@
+
+
+.logo {
+    height: 60px;
+    width: 60px;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #ffd9b3;
+    border-color: #ffd9b3;
+}
+
+
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
+}
+
+footer {
+    background-color: #02373D !important;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.border-top {
+    border-top: 1px solid #e5e5e5;
 }
 
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.navbar {
+    height: 80px;
+}
+
+
+.home-background {
+    background-image: url(../img/e2d323d55af4a72f23a6622b0eca15bf.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 108vh;
+    width: 100%;
+    margin-top: -60px;
+    padding-top: 300px;
+}
+
+.cars-banner {
+    background-image: url(../img/backkk.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+    width: 100%;
+    padding-top: 150px;
+}
+
+.caption {
+    text-align: center;
+    color: black;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.copyright {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.home-title {
+    text-align: center;
+    z-index: 1000;
+    color: #fff;
+    font-size: 30px;
+}
+
+.latest-cars img {
+    height: 200px;
+    width: 100%;
+}
+
+
+.brands-logo {
+    margin-top: 100px;
+}
+
+.logo-box img {
+    height: 80px;
+    object-fit: cover;
+}
+
+.our-services {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.text-cars {
+    color: #000000;
+    font-size: 32px;
+    margin-bottom: 20px;
 }
