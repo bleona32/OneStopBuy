@@ -1,0 +1,134 @@
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<ApplicationUser>
+    _signInManager;
+
+    @model IEnumerable<OneStopBuy.Models.Service>
+
+        @{
+    ViewData["Title"] = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+
+
+
+        <section class="w3l-about-breadcrumb position-relative text-center">
+            <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+                <div class="container py-lg-5 py-3">
+                    <h2 class="title">Services</h2>
+                    <ul class="breadcrumbs-custom-path mt-2">
+                        <li style="color:firebrick">Home</li>
+                        <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> Services </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- //about breadcrumb -->
+        <!--/services-sec-->
+        <div class="w3-services py-5">
+            <div class="container py-lg-4">
+                <div class="title-content text-left mb-lg-5 mb-4">
+                    <h6 class="sub-title">Our Services</h6>
+                    <h3 class="hny-title">Great Services</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit hic odio.</p>
+
+                </div>
+                <div class="row w3-services-grids">
+                    <div class="col-lg-4 col-md-6 causes-grid">
+                        <div class="causes-grid-info">
+                            <img src="~/img/items2.jpg" class="img-fuild" alt="">
+
+                            <h4 class="cause-title">
+                                School Supplied
+                            </h4>
+
+                            <p class="card-text mb-0">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit hic odio.
+                            </p>
+
+                            <a asp-controller="About" asp-action="Index" class="btn btn-style btn-primary mt-4">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 causes-grid">
+                        <div class="causes-grid-info">
+                            <img src="~/img/ab2.jpg" class="img-fuild" alt="">
+
+                            <h4 class="cause-title">
+                                Tables and chairs
+                            </h4>
+
+                            <p class="card-text mb-0">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit hic odio.
+                            </p>
+
+                            <a asp-controller="About" asp-action="Index" class="btn btn-style btn-primary mt-4">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 causes-grid">
+                        <div class="causes-grid-info">
+                            <img src="~/img/ab3.jpg" class="img-fuild" alt="">
+                            <h4 class="cause-title">
+                                Coloring books
+                            </h4>
+                            <p class="card-text mb-0">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit hic odio.
+                            </p>
+
+                            <a asp-controller="About" asp-action="Index" class="btn btn-style btn-primary mt-4">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 causes-grid">
+                        <div class="causes-grid-info">
+                            <img src="~/img/kids-playing.jpg" class="img-fuild" alt="">
+                            <h4 class="cause-title">
+                                Automotive filters
+                            </h4>
+                            <p class="card-text mb-0">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit hic odio.
+                            </p>
+
+
+                            <a asp-controller="About" asp-action="Index" class="btn btn-style btn-primary mt-4">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 causes-grid">
+                        <div class="causes-grid-info">
+                            <img src="~/img/ab5.jpg" class="img-fuild" alt="">
+                            <h4 class="cause-title">
+                                Engine diagnostics
+                            </h4>
+                            <p class="card-text mb-0">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit hic odio.
+                            </p>
+
+                            <a asp-controller="About" asp-action="Index" class="btn btn-style btn-primary mt-4">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 causes-grid">
+                        <div class="causes-grid-info">
+                            <img src="~/img/ab6.jpg" class="img-fuild" alt="">
+                            <h4 class="cause-title">
+                                Drivability problems
+                            </h4>
+                            <p class="card-text mb-0">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit hic odio.
+                            </p>
+
+                            <a asp-controller="About" asp-action="Index" class="btn btn-style btn-primary mt-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            #smslogo {
+                position: fixed;
+                right: 133px;
+                bottom: 51px;
+                z-index: 500;
+                width: 18px;
+            }
+
+            .fa-comment-dots {
+                width: 100px;
+            }
+        </style>
