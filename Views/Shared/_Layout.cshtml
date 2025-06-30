@@ -1,0 +1,199 @@
+
+@using Microsoft.AspNetCore.Identity;
+
+@inject SignInManager<ApplicationUser>
+    _signInManager
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - OneStopBuy</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/js/site.js" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+        @RenderSection("Styles", required: false)
+    </head>
+    <body>
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <div class="navbar navbar-expand-lg navbar-light">
+                    <h1>
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                            OneStopBuy
+                        </a>
+                    </h1>
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="fa icon-expand fa-bars"></span>
+                        <span class="fa icon-close fa-times"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+
+
+                        <ul class="navbar-nav nav-item active">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">Contact Us</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                @if (_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                            {
+                                <a class="nav-link" asp-area="Admin" asp-controller="Admin" asp-action="ListRoles">Admin Panel</a>
+
+                            }
+                            </li>
+
+                        </ul>
+                        <partial name="_LoginPartial" />
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+
+
+        <footer class="w3l-footer-66">
+            <section class="footer-inner-main">
+                <div class="footer-hny-grids py-5">
+                    <div class="container py-lg-4">
+                        <div class="text-txt">
+                            <div class="right-side">
+                                <div class="row sub-columns">
+                                    <div class="col-lg-4 col-md-6 sub-one-left pr-lg-4">
+                                        <h2>
+                                            <a class="navbar-brand" href="index.html">
+                                                <span>S</span>erving
+                                            </a>
+                                        </h2>
+                                        <p class="pr-lg-4">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Consequuntur hic odio voluptatem tenetur consequatur.Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit.
+                                        </p>
+                                        <div class="columns-2">
+                                            <ul class="social">
+                                                <li>
+                                                    <a href="#facebook"><span class="fab fa-facebook" aria-hidden="true"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#linkedin"><span class="fab fa-linkedin" aria-hidden="true"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#twitter"><span class="fab fa-twitter" aria-hidden="true"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#google"><span class="fab fa-google-plus" aria-hidden="true"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#github"><span class="fab fa-github" aria-hidden="true"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 sub-one-left">
+                                        <h6>Our Services</h6>
+                                        <div class="mid-footer-gd sub-two-right">
+
+                                            <ul>
+                                                <li>
+                                                    <a href="about.html"><span class="fa fa-angle-double-right mr-2"></span> About</a>
+                                                </li>
+                                                <li>
+                                                    <a href="services.html"><span class="fa fa-angle-double-right mr-2"></span> Services</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><span class="fa fa-angle-double-right mr-2"></span> Bundles for teachers</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><span class="fa fa-angle-double-right mr-2"></span>Social distancing</a>
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><span class="fa fa-angle-double-right mr-2"></span>Distance/Hybrid learning</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="fa fa-angle-double-right mr-2"></span>Mindfulness
+                                                    </a>
+                                                </li>
+                                                <li><a href="#support"><span class="fa fa-angle-double-right mr-2"></span>Sensory tools</a></li>
+                                                <li>
+                                                    <a href="contact.html"><span class="fa fa-angle-double-right mr-2"></span>Contact US</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 sub-one-left">
+                                        <h6>Contact Info</h6>
+                                        <div class="sub-contact-info">
+                                            <p>Address: Magj. Prishtine - Ferizaj, Çagllavicë 10000.</p>
+                                            <p class="my-3">Phone: <strong><a href="tel:+24160033999">+383 49-100-1001</a></strong></p>
+                                            <p>E-mail:<strong> <a href="mailto:info@example.com">OneStopBuy@gmail.com</a></strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="below-section">
+                    <div class="container">
+                        <div class="copyright-footer">
+
+                            <ul class="columns text-lg-center">
+                                <li>
+                                    <a href="#">Privacy Policy</a>
+                                </li>
+                                <li>|</li>
+                                <li>
+                                    <a href="#">Terms Of Use</a>
+                                </li>
+                            </ul>
+                            <div class="columns text-lg-center">
+                                <p>© 2022 OneStopBuy. All rights reserved </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        @RenderSection("Scripts", required: false)
+
+    </body>
+</html>
+<style>
+    header {
+        background-color: #02373D !important;
+    }
+
+    footer {
+        background-color: white;
+    }
+</style>

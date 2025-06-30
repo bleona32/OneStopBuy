@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<title>Admin Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<body>
+
+    <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left bg-dark text-white" style="width:200px;" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+        @*<a asp-area="Admin" asp-action="Register" asp-controller="Admin" class="w3-bar-item w3-button">
+                Add new user
+            </a>*@
+        <br />
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-check-circle mx-auto d-block" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+        </svg>
+        <br />
+        <br />
+        <a class="w3-bar-item w3-button text-center" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+        <br />
+        <br />
+        <hr />
+        @*        <a class="w3-bar-item w3-button text-center" asp-area="Admin" asp-controller="Admin" asp-action="ListUsers">Manage Users</a>
+        *@        <a class="w3-bar-item w3-button text-center" asp-area="Admin" asp-controller="Admin" asp-action="CreateRole">Create Role</a>
+        <a class="w3-bar-item w3-button text-center" asp-area="Admin" asp-controller="Admin" asp-action="ListRoles">List Role</a>
+        @*        <a class="w3-bar-item w3-button text-center" asp-area="" asp-controller="Home" asp-action="NewsUpload">Manage News</a>
+        *@        @*<a class="w3-bar-item w3-button text-center" asp-area="" asp-controller="Warranties" asp-action="Create">Manage Warranties</a>*@
+        @*        <a class="w3-bar-item w3-button text-center" asp-area="" asp-controller="autos" asp-action="Create">Manage Cars</a>
+        *@        <!--<a class="w3-bar-item w3-button text-center" asp-area="" asp-controller="Home" asp-action="NewsReports">Manage News Reports</a>-->
+        <hr />
+
+        <br />
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock text-center mx-auto d-block" viewBox="0 0 16 16">
+            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+        </svg>
+        <div id="date-div" class="text-center">
+
+        </div>
+    </div>
+
+    <div class="w3-main  " style="margin-left:200px">
+        <div class="w3-teal bg-secondary">
+            <button class="w3-button w3-teal w3-xlarge w3-hide-large " onclick="w3_open()">&#9776;</button>
+            <div class="w3-container row" bg-secondary>
+                <div style="margin-left:auto;margin-right:auto; height:50px;" class="mt-5"><h3>Admin Panel</h3></div>
+
+            </div>
+        </div>
+        <main role="main" class="pb-3 mt-5">
+            @RenderBody()
+        </main>
+
+
+    </div>
+
+    <script>const dateDiv = document.getElementById('date-div');
+
+        function myDateFunction() {
+            const now = new Date();
+            const nowStr = now.toLocaleString('en-US');
+            dateDiv.innerHTML = nowStr;
+        }
+        setInterval(myDateFunction, 1000);
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }</script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+<style>
+    main {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
