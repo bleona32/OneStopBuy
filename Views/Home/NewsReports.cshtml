@@ -1,0 +1,85 @@
+@model IEnumerable<ApplicationUser>
+    <link rel=”stylesheet” href=” sweetalert.css”>
+    <div id="app">
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Reason
+                    </th>
+                    <th>
+                        News Id
+                    </th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr v-for="report in allNewsReports" :key="report._id">
+                    <td>
+                        <p>{{report.reportReason}}</p>
+                    </td>
+                    <td>
+                        <p>{{report._id}}</p>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" value="{{report._id}}" v-on:click="removeReport(report._id)">REMOVE</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+    <script>// import Swal from 'sweetalert2/dist/sweetalert2.js'
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            allNewsReports: '',
+        },
+        mounted: function () {
+            axios.get('http://localhost:3000/user/getNewsReports')
+                .then(reports => {
+                    this.allNewsReports = reports.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        methods: {
+            removeReport: function (id) {
+                console.log("TEST", id)
+                axios.delete('http://localhost:3000/user/removeNewsReport/' + id)
+                //swal("Your Report Is Deleted\nSuccessfully!", "success");
+                Swal.fire(
+
+                    'Your Report Is Deleted\nSuccessfully!',
+                    'success',
+                    function (isConfirm) {
+                        if (isConfirm) {
+
+                            location.reload(true);
+
+                        }
+                    }
+                )
+                location.reload(true);
+                //alert("Your Report Is Deleted\nSuccessfully!");
+
+            }
+        }
+    })</script>

@@ -1,0 +1,93 @@
+@model IEnumerable<OneStopBuy.Models.Message>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h2 class="text-center text-primary">
+        <i class="fab fa-facebook-messenger"></i>&nbsp; Ask for help
+
+    </h2>
+    <p style="text-align:center;">We will respond as fast as we can.</p>
+    <div id="Chats">
+
+    </div>
+    <div id="Chat">
+
+        <input type="text" id="name" value="@ViewBag.CurrentUserName" />
+        <input type="text" id="inputText" placeholder="Type here..." />
+
+        <button type="submit" value="Send" id="SendMessageButton"><i class="far fa-paper-plane"></i></button>
+    </div>
+
+    @section scripts {
+        <script src="~/signalr/signalr.min.js"></script>
+        <script src="~/lib/jquery/dist/jquery.unobtrusive-ajax.min.js"></script>
+        <script src="~/js/chat.js"></script>
+
+    }
+
+    <style>
+        input#name {
+            display: none;
+        }
+
+        input#inputText {
+            margin-top: 4px;
+            width: 94%;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        div#Chat {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 37px;
+            margin-bottom: 50px;
+        }
+
+        div#Chats {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: lightgray;
+            text-align: center;
+            min-height: 130px;
+            border-radius: 25px;
+        }
+
+        .fixed-top {
+            background-color: seagreen;
+        }
+
+        div#Chats p {
+            background-color: white;
+            width: 70%;
+            text-align: center;
+            margin-left: auto;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            color: white;
+            margin-right: auto;
+            padding-top: 19px;
+            background-color: royalblue;
+        }
+
+        div#Chats h4 {
+            background-color: royalblue;
+            width: 70%;
+            color: white;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 16px;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        button#SendMessageButton {
+            border-radius: 25px;
+        }
+    </style>

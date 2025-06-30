@@ -1,0 +1,88 @@
+@{
+    ViewData["Title"] = "All News";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+@section Scripts{
+    <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+}
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<h1>@ViewData["Title"]</h1>
+<div id="result"></div>
+
+<button type="button" id="allNews" onclick="ajaxGet()">click to view all news.</button>
+@*<div id="title"></div>
+    <div id="description"></div>
+    <div id="img_path"></div>*@
+<div id="contain"></div>
+
+<script type='text/javascript'>
+
+
+
+            // DO GET
+
+    function ajaxGet() {
+
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/user/allNews",
+                success: function (result) {
+
+                    $.each(result, function (key, value) {
+                    @*  alert("Title: " + result[key].title + "; Description: " + result[key].description + ";");*@
+                       console.log( result[key].image);
+                    });
+                    $.each(result, function (index, obj) {
+                        var tr = $("<div></div>");
+
+
+                        tr.append("<p>" + obj.title + "</p>");
+                        tr.append("<p>" + obj.description + "</p>");
+                        tr.append("<p>" + obj.img_path + "</p>");
+                        tr.append("<p>" + obj.createdAt + "</p><hr>");
+                        tr.append("<button value=" + obj._id +" onclick=removenews(this)>delete</button><hr>");
+
+
+                        $("#contain").append(tr);
+                    });
+                    @*if (results.length > 0) {
+                    $('#title').text(result[0].title);
+                    $('#description').text(result[0].description);
+                        $('#img_path').text(result[0].img_path);
+                    }
+                    else {
+                        alert("No data.");
+                    }*@
+                    console.log("Success: ", result);
+                },
+                error: function (e) {
+                    $("#getResultDiv").html("Error");
+                    console.log("ERROR: ", e);
+                }
+
+            });
+
+    }
+
+
+    function removenews(data){
+        var id = $(data).val();
+        console.log(id);
+        $.ajax({
+            type: "DELETE",
+            url: 'http://localhost:3000/user/remove_news/' + id,
+            success: function (result) {
+                console.log(result);
+                location.reload(true);
+            }
+
+        });
+    }
+
+
+
+</script>
