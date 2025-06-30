@@ -1,0 +1,51 @@
+@using Microsoft.AspNetCore.Identity;
+@model OneStopBuy.ViewModels.AccountViewModel
+
+@inject SignInManager<ApplicationUser>
+    SignInManager
+    @inject UserManager<ApplicationUser>
+        UserManager
+
+        @{
+    ViewData["Title"] = "Account";
+    var ProfilePicture = "~/images/" + Model.Photo;
+    var user = await UserManager.GetUserAsync(User);
+        }
+
+        @section Styles {
+            <link href="~/css/UserProfile.css" rel="stylesheet" />
+        }
+
+
+        <div class="user-profile-main">
+            <img src="@ProfilePicture" alt="Alternate Text" asp-append-version="true" />
+            <h1>@Model.Username</h1>
+        </div>
+
+        <div class="user-bio">
+            @if (Model.Bio.Equals(""))
+    {
+            <p>No Bio yet. :/</p>
+
+
+    }
+    else
+    {
+            <p>@Model.Bio</p>
+
+    }
+        </div>
+
+        @if (SignInManager.IsSignedIn(User))
+{
+        <div class="delete-account">
+            @if (user.Id.Equals(Model.userId))
+        {
+            <a asp-action="DeleteAccount" asp-controller="ApplicationUser" asp-route-id="@Model.userId" class="btn">Delete</a>
+        }
+        else if (User.IsInRole("Admin"))
+        {
+            <a asp-action="DeleteAccount" asp-controller="ApplicationUser" asp-route-id="@Model.userId" class="btn">Delete</a>
+        }
+        </div>
+}
